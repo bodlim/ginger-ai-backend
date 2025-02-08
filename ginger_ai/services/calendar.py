@@ -91,7 +91,7 @@ class AutomatedFamilyAgent:
                     "role": "user",
                     "content": f"""Based on these upcoming family events:
                 {events_context}
-                
+
                 Please provide:
                 1. Suggestions for improving quality time
                 2. Potential conversation topics

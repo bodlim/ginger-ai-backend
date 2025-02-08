@@ -12,7 +12,7 @@ import pandas as pd
 
 
 class FamilyEnhancementAgent:
-    def __init__(self, db_path: str = "family_agent.db"):
+    def __init__(self, db_path: str="family_agent.db"):
         # Initialize logging
         logging.basicConfig(level=logging.INFO)
         self.logger = logging.getLogger(__name__)
@@ -119,7 +119,7 @@ class FamilyEnhancementAgent:
         conn.close()
 
     def analyze_interactions(
-        self, family_member: Optional[str] = None, days: int = 30
+        self, family_member: Optional[str]=None, days: int=30
     ) -> Dict:
         """Analyze interaction patterns for insights"""
         conn = sqlite3.connect(self.db_path)

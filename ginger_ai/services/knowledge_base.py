@@ -87,7 +87,7 @@ class FamilyEnhancementAgent:
         c = conn.cursor()
         c.execute(
             """
-            INSERT INTO interactions 
+            INSERT INTO interactions
             (timestamp, family_member, interaction_type, duration, quality_score, notes)
             VALUES (?, ?, ?, ?, ?, ?)
             """,
@@ -109,7 +109,7 @@ class FamilyEnhancementAgent:
         c = conn.cursor()
         c.execute(
             """
-            INSERT INTO goals 
+            INSERT INTO goals
             (created_at, category, description, target_date, status)
             VALUES (?, ?, ?, ?, ?)
             """,
@@ -125,7 +125,7 @@ class FamilyEnhancementAgent:
         conn = sqlite3.connect(self.db_path)
         df = pd.read_sql_query(
             """
-            SELECT * FROM interactions 
+            SELECT * FROM interactions
             WHERE timestamp >= date('now', ?)
             """,
             conn,

@@ -10,6 +10,7 @@ from llama_index.llms import Anthropic
 from llama_index.embeddings import HuggingFaceEmbedding
 import pandas as pd
 
+
 class FamilyEnhancementAgent:
     def __init__(self, db_path: str = "family_agent.db"):
         # Initialize logging
@@ -72,7 +73,8 @@ class FamilyEnhancementAgent:
         conn.close()
         
     def log_interaction(self, family_member: str, interaction_type: str, 
-                       duration: int, quality_score: int, notes: str = ""):
+        duration: int, quality_score: int, notes: str = ""
+    ):
         """Log a family interaction"""
         conn = sqlite3.connect(self.db_path)
         c = conn.cursor()
@@ -97,7 +99,7 @@ class FamilyEnhancementAgent:
         conn.close()
         
     def analyze_interactions(self, family_member: Optional[str] = None, 
-                           days: int = 30) -> Dict:
+        days: int = 30) -> Dict:
         """Analyze interaction patterns for insights"""
         conn = sqlite3.connect(self.db_path)
         df = pd.read_sql_query("""
@@ -117,4 +119,3 @@ class FamilyEnhancementAgent:
         }
         
         return analysis
-

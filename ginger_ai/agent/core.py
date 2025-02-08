@@ -16,6 +16,7 @@ class InsightRequest:
     knowledge_domains: List[str]
     family_members: List[str]
 
+
 class GingerAIAgent:
     def __init__(self):
         # Initialize core components
@@ -77,3 +78,4 @@ class GingerAIAgent:
         """Track family interaction patterns"""
         calendar_data = await self.analyze_calendar()
         return self._analyze_patterns(calendar_data)
+    

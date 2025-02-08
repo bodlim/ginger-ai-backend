@@ -17,6 +17,7 @@ class FlightSearch:
     return_date: Optional[datetime] = None
     passengers: Dict[str, int] = None  # e.g., {"adults": 2, "children": 1}
 
+
 class FlightIntegration:
     def __init__(self):
         self.amadeus_api_key = os.getenv("AMADEUS_API_KEY")
@@ -53,12 +54,13 @@ class FlightIntegration:
         return alerts
 
     def integrate_with_calendar(self, flight_options: List[Dict], 
-                              calendar_events: List[Dict]) -> List[Dict]:
+        calendar_events: List[Dict]) -> List[Dict]:
         """Match flight options with calendar availability"""
         return [
             flight for flight in flight_options
             if self._is_compatible_with_schedule(flight, calendar_events)
         ]
+
 
 class TravelPlanner:
     def __init__(self, flight_integration: FlightIntegration):
@@ -97,3 +99,4 @@ class TravelPlanner:
                 })
         
         return sorted(trips, key=lambda x: x["family_friendly_score"], reverse=True)
+    

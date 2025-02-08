@@ -7,6 +7,7 @@ from googleapiclient.discovery import build
 import json
 import anthropic
 
+
 class AutomatedFamilyAgent:
     def __init__(self):
         self.client = anthropic.Client(api_key=os.getenv("ANTHROPIC_API_KEY"))
@@ -51,8 +52,9 @@ class AutomatedFamilyAgent:
         family_events = []
         for event in events_result.get('items', []):
             for member, details in self.config['family_members'].items():
-                if any(keyword in event['summary'].lower() 
-                      for keyword in details['calendar_keywords']):
+                if any(keyword in event['summary'].lower()
+                    for keyword in details['calendar_keywords']
+                ):
                     family_events.append({
                         'member': member,
                         'event': event['summary'],

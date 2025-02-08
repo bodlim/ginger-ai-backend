@@ -54,7 +54,7 @@ class FamilyEnhancementAgent:
                 quality_score INTEGER,
                 notes TEXT
             )
-        """
+            """
         )
 
         c.execute(
@@ -68,7 +68,7 @@ class FamilyEnhancementAgent:
                 status TEXT,
                 progress_notes TEXT
             )
-        """
+            """
         )
 
         conn.commit()
@@ -90,7 +90,7 @@ class FamilyEnhancementAgent:
             INSERT INTO interactions 
             (timestamp, family_member, interaction_type, duration, quality_score, notes)
             VALUES (?, ?, ?, ?, ?, ?)
-        """,
+            """,
             (
                 datetime.now(),
                 family_member,
@@ -112,7 +112,7 @@ class FamilyEnhancementAgent:
             INSERT INTO goals 
             (created_at, category, description, target_date, status)
             VALUES (?, ?, ?, ?, ?)
-        """,
+            """,
             (datetime.now(), category, description, target_date, "active"),
         )
         conn.commit()
@@ -127,7 +127,7 @@ class FamilyEnhancementAgent:
             """
             SELECT * FROM interactions 
             WHERE timestamp >= date('now', ?)
-        """,
+            """,
             conn,
             params=(f"-{days} days",),
         )

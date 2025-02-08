@@ -53,7 +53,7 @@ class FlightIntegration:
                 await self._check_price_trends(route)
         return alerts
 
-    def integrate_with_calendar(self, flight_options: List[Dict], 
+    def integrate_with_calendar(self, flight_options: List[Dict],
         calendar_events: List[Dict]) -> List[Dict]:
         """Match flight options with calendar availability"""
         return [
@@ -99,4 +99,3 @@ class TravelPlanner:
                 })
         
         return sorted(trips, key=lambda x: x["family_friendly_score"], reverse=True)
-    

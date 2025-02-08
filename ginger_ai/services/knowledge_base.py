@@ -72,7 +72,7 @@ class FamilyEnhancementAgent:
         conn.commit()
         conn.close()
         
-    def log_interaction(self, family_member: str, interaction_type: str, 
+    def log_interaction(self, family_member: str, interaction_type: str,
         duration: int, quality_score: int, notes: str = ""
     ):
         """Log a family interaction"""
@@ -98,7 +98,7 @@ class FamilyEnhancementAgent:
         conn.commit()
         conn.close()
         
-    def analyze_interactions(self, family_member: Optional[str] = None, 
+    def analyze_interactions(self, family_member: Optional[str] = None,
         days: int = 30) -> Dict:
         """Analyze interaction patterns for insights"""
         conn = sqlite3.connect(self.db_path)

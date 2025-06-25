@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 @dataclass
 class EvaluationTestCase:
     """Represent a single input-output pair for evaluation."""
+
     prompt: str
     expected_output: Optional[str] = None
     context: Optional[str] = None
@@ -14,9 +15,10 @@ class EvaluationTestCase:
 
 class BaseEvaluationDataset(ABC):
     """Abstract base class for all evaluation datasets."""
+
     def __init__(self, data: List[EvaluationTestCase]):
         self._data = data
-    
+
     @abstractmethod
     def __len__(self) -> int:
         pass

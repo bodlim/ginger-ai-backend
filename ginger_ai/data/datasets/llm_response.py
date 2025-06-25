@@ -5,6 +5,7 @@ from typing import Any, Dict, Optional
 @dataclass
 class LLMResponse:
     """Represents the output from an LLM."""
+
     generated_text: str
     model_name: str
     prompt_tokens: Optional[int] = None
